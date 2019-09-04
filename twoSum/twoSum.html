@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+        //暴力法
+        var twoSum = function (nums, target) {
+            for (let i = 0; i < nums.length; i++) {
+                let num1 = nums[i]
+                for (let j = i + 1; j < nums.length; i++) {
+                    let num2 = nums[j];
+                    if (num1 + num2 === target) {
+                        return [i, j]
+                    }
+                }
+            }
+        };
+        //map  法
+        var twoSum = function (nums, target) {
+            var map = {};
+            for (let i = 0; i < nums.length; i++) {
+                let num = nums[i];
+                map[num] = i;
+            }
+            for (let j = 0; j < nums.length; j++) {
+                let num1 = nums[j];
+                let anotherNum = target - num1;
+                if (map[anotherNum] !== undefined && map[anotherNum] !== j) {
+                    return [j, map[anotherNum]]
+                }
+            }
+        }
+        /**
+     * hash 表解法 补数的解法
+     */
+        const map = new Map();
+        for (let i = 0; i < nums.length; i++) {
+            if (map.has(nums[i])) {//该has()方法返回一个布尔值，指示是否存在具有指定键的元素。
+                return [map.get(nums[i]), i]
+            }   
+            map.set(target - nums[i], i);
+        }
+
+    </script>
+</body>
+
+</html>
