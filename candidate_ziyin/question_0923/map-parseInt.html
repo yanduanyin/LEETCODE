@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const res = [1, 2, 3].map(parseInt);
+    // '1' 0 parseInt('1', 0) ; 0 -> 10 1
+    // '2' 0 parseInt('2', 1) ; NaN
+    // '3' 0 parseInt('3', 2) ; NaN
+    console.log(res);
+    
+    // [1,2,3]
+    // 函数是一等公民   ： 它和其他变量有同等地位
+    function foo(a, b) {
+      console.log(a);
+      b();
+    }
+    // 1
+    function bar() {console.log('ziyin')}
+    foo(1, bar);
+    ['1', '2', '3'].map((a, b, c) => {
+      console.log(a, b, c);
+    });
+    // 2
+    function bar123(d) {
+      console.log(d);
+    }
+    ['1', '2', '3'].map(bar123)
+
+    var str = '123';   // 10 进制
+    var str1 = '11';  // 2 进制
+    parseInt(str, 10);
+    parseInt('123', 2)
+    // 默认为 10进制
+    let a = parseInt(str1, 2);  // 3
+    let b = parseInt(str1, 10);  // 11
+    // parseInt 中第二个参数是用来描述第一个参数到底是几进制的，返回值最终都是十进制
+    // 
+    // parseInt 返回的都是十进制
+  </script>
+</body>
+</html>

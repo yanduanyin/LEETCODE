@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // console.log(a);
+    // var a = 10;
+    // function a () {
+    //   console.log(123)
+    // }
+    // console.log(a);
+    // function 的声明 和 赋值 都会提升
+    // var 的声明会提升，赋值不提升 ；上面代码也相当于
+    // var a ;
+    // function a () {
+    //   console.log(123)
+    // }
+    //  console.log(a)
+    //  a = 10;
+
+// 以下情况很可能会误导你说出错误答案
+    var x = 1,
+      y = 0,
+      z = 0;
+    function add(x) {
+      return (x = x + 1);
+    }
+    y = add(x); 
+    console.log(y)
+    function add(x) {
+      return (x = x + 3);
+    }
+    z = add(x); 
+    console.log(z)
+
+    foo1() 
+// 函数声明  function 会提升声明和赋值
+    function foo1() {
+    }
+
+    foo2 ()
+    // 函数表达式   var 的是一个表达式  最后会提foo2的变量，但是等于号后面的function(){}不会提升
+    var foo2 = function() {
+    }
+  </script>
+</body>
+</html>
